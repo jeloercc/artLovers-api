@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Lovers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+ </head>
+ <body>
+    <header>
+        <h1>Art Lovers Gallery</h1>
+        <!-- Semantic element for navigation -->
+        <nav class="main-nav">
+            <ul>
+                <li><button id="btn-artworks" class="nav-btn">Artworks</button></li>
+                <li><button id="btn-search" class="nav-btn">Search</button></li>
+            </ul>
+        </nav>
+    </header>
+     <!-- Hero section with a brief introduction -->
+    <section id="hero">
+    <h2>Welcome Art Lovers! Explore... </h2>
+    <p>Browse or search the Art Institute of Chicago's world-class collection — from ancient artifacts to modern masterpieces. Navigate the full collection or find works by artist, style, or period.</p>
+</section>
+    <!-- Search section  -->
+    <section id="search-section">
+        <input type="text" id="search-input" placeholder="Search artworks... (e.g., monet)">
+        <button id="search-btn" class="nav-btn">Search</button>
+    </section>
+
+    <!-- Empty container for fetched data -->
+    <main id="art-container"></main>
+    <!-- Pagination section -->
+    <nav id="pagination-control" class="pagination">
+        <button id="prev-btn" class="nav-btn">Previous</button>
+        <!-- <span> es un inline element. Esto significa que no crea un line break, se queda en la misma línea que los elements de al lado.-->
+        <span id="page-info">Page 1</span> <!-- Displays current page number and total pages -->
+        <button id="next-btn" class="nav-btn">Next</button>
+    </nav>
+
+    <footer>
+        <p>&copy; 2026 Art Lovers.</p>
+    </footer>
+   <script src="index.js"></script>
+  </body>
+</html>
