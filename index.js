@@ -41,7 +41,7 @@ const renderArtworks = (artworks) => {
         const image = document.createElement("img");
         // Using the correct IIIF format
         if (art.image_id) {
-            image.src = `https://www.artic.edu/iiif/2/${art.image_id}/full/843,/0/default.jpg`;
+            image.src = `https://www.artic.edu/iiif/2/${art.image_id}/full/!843,843/0/default.jpg`;
             image.alt = `${art.title} artwork`;
             image.style.maxWidth = "100%"; 
             image.style.borderRadius = "4px";
@@ -101,7 +101,7 @@ const renderSearchResults = (searchResults) => {
         const image = document.createElement("img");
         if (search.image_id) {
             // Reusing the exact same IIIF logic that works!
-            image.src = `https://www.artic.edu/iiif/2/${search.image_id}/full/843,/0/default.jpg`;
+            image.src = `https://www.artic.edu/iiif/2/${search.image_id}/full/!843,843/0/default.jpg`;
             image.alt = `${search.title} artwork`;
             image.style.maxWidth = "100%"; 
             image.style.borderRadius = "4px";
@@ -121,8 +121,8 @@ const renderSearchResults = (searchResults) => {
         container.appendChild(searchBlock);
     });
 };
-//actios listeners for buttons and pagination
-// --- NAVIGATION LISTENERS (Top Menu) ---
+// Listeners for buttons and pagination
+// NAVIGATION LISTENERS (Top Controls) 
 document.getElementById("btn-artworks").addEventListener("click", () => {
     currentMode = "artworks";
     currentPage = 1;
@@ -137,12 +137,12 @@ document.getElementById("btn-search").addEventListener("click", () => {
     document.getElementById("search-section").classList.add("visible");
 });
 
-// --- SEARCH LISTENER (Search Button) ---
+//  SEARCH LISTENER (Search Button) 
 document.getElementById("search-btn").addEventListener("click", () => {
     currentPage = 1;
     fetchSearch();
 });
-// --- ENTER KEY LISTENER ---
+//  ENTER KEY LISTENER 
 document.getElementById("search-input").addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
         currentPage = 1;
@@ -150,7 +150,7 @@ document.getElementById("search-input").addEventListener("keydown", (event) => {
     }
 });
 
-// --- PAGINATION LISTENERS (Bottom Controls) ---
+//  PAGINATION LISTENERS (Bottom Controls)
 document.getElementById("prev-btn").addEventListener("click", () => {
     if (currentPage > 1) {
         currentPage--;
