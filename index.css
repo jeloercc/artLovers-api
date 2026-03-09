@@ -1,0 +1,132 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #daf4f6;
+    margin: 0;
+}
+/* Header styling, section containing title and navigation */
+header {
+    background-color: #c6c9a8;
+    color: white;
+    padding: 1px 0;
+}
+/*Main title of the page*/
+h1 {
+    text-align: center;
+}
+/*  NAVIGATION  */
+/* Main navigation buttons  */
+.main-nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    list-style-type: none;
+    padding: 0;
+}
+/* Style for navigation buttons */
+.nav-btn {
+    background-color: rgb(205, 241, 240);   
+    border: 1px solid #62615c;   
+    padding: 8px 16px;         
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    border: 4px;         
+}
+/*Visual feedback when mouse is over the button*/
+.nav-btn:hover {
+    background-color: #f0f0f0;
+    color: #d2c5c5;
+}
+/*Shows which nav button is selected */
+.nav-btn.active {
+    background-color: #333;
+    color: white;
+}
+/* HERO section  */
+#hero {
+    text-align: center;
+    padding: 20px ;
+    background-color: #c6c9a8;
+    max-width: 1000px;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+}
+#hero h2 {
+    font-size: 1.8rem;
+    color: #ffffff;
+    margin: 0 0 8px 0;
+}
+
+#hero p {
+    font-size: 1rem;
+    color: #252323;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+/* SEARCH SECTION  */
+/* Search section oculta por default */
+#search-section {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+}
+
+#search-section.visible {
+    display: flex;
+}
+#search-input {
+    padding: 8px 16px;
+    font-size: 1rem;
+    border: 1px solid #333;
+    border-radius: 4px;
+    width: 300px;
+    font-family: 'Roboto', sans-serif;
+}
+
+#search-input:focus {
+    outline: none;
+    border-color: #b0b953;
+    box-shadow: 0 0 4px rgba(176, 185, 83, 0.5);
+}
+/* ART CONTAINER */
+/* Container for all artworks */
+#art-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Individual artwork block */
+.art-card {
+    border: 1px solid #b0b953;
+    border-radius: 8px;
+    padding: 15px;
+    width: 300px;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+}
+/* Controls for navigating between pages  */
+#pagination-control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+}
+/*current page number*/
+#page-info {
+    font-weight: bold;
+    font-size: 1rem;
+}
+/* Footer styling */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+}
