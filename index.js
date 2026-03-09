@@ -1,6 +1,7 @@
 // Global State Variables, to track current page and mode (artworks vs search)
 let currentPage = 1;
-let currentMode = "artworks"; 
+let currentMode = "artworks";
+let totalPages = 1; // Store total pages to prevent infinite pagination
 // Store the last search query to maintain it across pagination
 let lastSearchQuery = "";
 
@@ -16,6 +17,7 @@ const fetchArtworks = () => {
             return response.json();
         })
         .then((data) => {
+            totalPages = data.pagination.total_pages; // Store total pages
             const pageInfo = document.getElementById("page-info");
             if (pageInfo) {
                 pageInfo.textContent = `Page ${data.pagination.current_page} of ${data.pagination.total_pages}`;
@@ -78,10 +80,10 @@ const fetchSearch = () => {
             return response.json();
         })
         .then((data) => {
+            totalPages = Math.ceil(data.pagination.total / 12); // Store calculated total pages
             const pageInfo = document.getElementById("page-info");
             if (pageInfo) {
                 // Calculate total pages based on total results and limit per page (12)
-                const totalPages = Math.ceil(data.pagination.total / 12);
                 pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
             }
             renderSearchResults(data.data);
@@ -113,7 +115,7 @@ const renderSearchResults = (searchResults) => {
         title.textContent = search.title;
         
         const artistInfo = document.createElement("p");
-        artistInfo.textContent = `Artist: ${search.artist_display}`;
+        artistInfo.textContent = `Artist: ${search.artist_display || 'No provided information' }`;
 
         searchBlock.appendChild(title);
         searchBlock.appendChild(image);
@@ -164,12 +166,15 @@ document.getElementById("prev-btn").addEventListener("click", () => {
 });
 // Next button listener
 document.getElementById("next-btn").addEventListener("click", () => {
-    currentPage++;
-    // Check which mode is active to call the correct fetch
-    if (currentMode === "artworks") {
-        fetchArtworks();
-    } else {
-        fetchSearch();
+    // Check if we're not at the final page before incrementing
+    if (currentPage < totalPages) {
+        currentPage++;
+        // Check which mode is active to call the correct fetch
+        if (currentMode === "artworks") {
+            fetchArtworks();
+        } else {
+            fetchSearch();
+        }
     }
 });
 
